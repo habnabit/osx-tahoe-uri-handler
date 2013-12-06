@@ -7,29 +7,26 @@ Usage:
 
 from setuptools import setup
 
-APP = ['url-open-handler.py']
-DATA_FILES = ['handler']
+APP = ['tahoe-uri-handler.py']
 OPTIONS = {
     'argv_emulation': False,
-    'plist' : {
-        'CFBundleDevelopmentRegion' : 'en',
-        'NSPrincipalClass' : 'NSApplication',
-        'NSAppleScriptEnabled' : 'YES',
-        'LSUIElement' : 'YES',
-        'CFBundleIdentifier' : 'org.irq0.custom_url_handler',
-        'CFBundleURLTypes' : [{
-                'CFBundleURLName' : 'eMail Message',
-                'CFBundleURLSchemes' : [
-                    'message',
-                    'mailto',
-                    ]
-                }]
-        }
+    'plist': {
+        'CFBundleDevelopmentRegion': 'en',
+        'NSPrincipalClass': 'NSApplication',
+        'NSAppleScriptEnabled': 'YES',
+        'LSUIElement': 'YES',
+        'CFBundleIdentifier': 'io.peq.tahoe-handler',
+        'CFBundleURLTypes': [{
+            'CFBundleURLName': 'Tahoe-LAFS URI',
+            'CFBundleURLSchemes': [
+                'URI',
+            ],
+        }],
     }
+}
 
 setup(
     app=APP,
-    data_files=DATA_FILES,
     options={'py2app': OPTIONS},
     setup_requires=['py2app'],
 )
